@@ -14,6 +14,7 @@ import com.smartbuilding.newarchitecture.MainApplicationReactNativeHost;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
+import com.microsoft.codepush.react.CodePush;
 
 public class MainApplication extends NavigationApplication {
 
@@ -22,6 +23,11 @@ public class MainApplication extends NavigationApplication {
         @Override
         public boolean getUseDeveloperSupport() {
           return BuildConfig.DEBUG;
+        }
+
+        @Override
+        protected String getJSBundleFile() {
+            return CodePush.getJSBundleFile();
         }
 
         @Override
