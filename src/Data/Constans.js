@@ -6,6 +6,12 @@ export const API_STATUS2 = 'staging';
 export const Api_status3 = 'prod';
 export const ZONE = 'London,uk';
 
+export const MQTT_DATA = {
+  host: '10.100.2.41',
+  port: 1883,
+  path: 'esp32/temperature',
+};
+
 export const dataTest = {
   labels: ['January', 'February', 'March', 'April', 'May', 'June'],
   datasets: [

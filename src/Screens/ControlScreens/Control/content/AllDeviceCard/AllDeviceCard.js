@@ -1,12 +1,18 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
 import styles from './AllDeviceCard.styles';
 import {Colors} from '../../../../../Themes';
 import ToggleSwitch from 'toggle-switch-react-native';
 
-const AllDeviceCard = ({title, status, stylesCard, stylesText}) => {
+const AllDeviceCard = ({
+  title,
+  status,
+  stylesCard,
+  stylesText,
+  onPressData,
+}) => {
   return (
-    <View style={stylesCard}>
+    <TouchableOpacity onPress={onPressData} style={stylesCard}>
       <Text style={[styles.textContainer, stylesText]}>{title}</Text>
       <ToggleSwitch
         isOn={status}
@@ -19,7 +25,7 @@ const AllDeviceCard = ({title, status, stylesCard, stylesText}) => {
         size="small"
         onToggle={isOn => console.log('changed to : ', isOn)}
       />
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -28,6 +34,7 @@ AllDeviceCard.defaultProps = {
   status: false,
   stylesCard: {},
   stylesText: {},
+  onPressData: () => {},
 };
 
 export default AllDeviceCard;

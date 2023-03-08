@@ -10,6 +10,16 @@ import Control from '../Screens/ControlScreens/Control/Control';
 
 import ReduxWrapper from './ReduxWrapper';
 import {NAVIGATION_NAME} from './NavigationName';
+import CodePush from 'react-native-code-push';
+
+let CodePushOptions = {
+  checkFrequency: CodePush.CheckFrequency.ON_APP_RESUME,
+  mandatoryInstallMode: CodePush.InstallMode.IMMEDIATE,
+  updateDialog: {
+    appendReleaseDescription: true,
+    title: 'a new update is available!',
+  },
+};
 
 function RegisterComponentWrapper(identity, component) {
   Navigation.registerComponent(
@@ -20,7 +30,7 @@ function RegisterComponentWrapper(identity, component) {
 }
 
 export default function () {
-  RegisterComponentWrapper(NAVIGATION_NAME.APP, App);
+  RegisterComponentWrapper(NAVIGATION_NAME.APP, CodePush(CodePushOptions)(App));
   RegisterComponentWrapper(NAVIGATION_NAME.HOME.home, Home);
   RegisterComponentWrapper(NAVIGATION_NAME.CAMERA.camera, Camera);
   RegisterComponentWrapper(NAVIGATION_NAME.CONTROL.control, Control);

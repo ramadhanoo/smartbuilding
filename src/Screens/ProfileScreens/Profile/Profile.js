@@ -22,7 +22,7 @@ const Profile = props => {
     <BaseScreens
       safeAreaColor={Colors.whiteBackground}
       style={styles.container}>
-      <Text>Profile</Text>
+      <Text>Testing hhhhhhh</Text>
       <SafeAreaView style={styles.bottomArea} />
     </BaseScreens>
   );

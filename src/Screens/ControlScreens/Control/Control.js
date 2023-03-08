@@ -27,7 +27,7 @@ moment.locale('id');
 
 const Control = props => {
   const {state, actions} = useControl();
-  const {actionsTabs} = actions;
+  const {actionsTabs, sendData} = actions;
   const {scrolling, activeTab, cardRight, cardLeft} = state;
 
   return (
@@ -72,6 +72,7 @@ const Control = props => {
               if (item.category === 'ALL') {
                 return (
                   <AllDeviceCard
+                    onPressData={sendData}
                     key={index}
                     title={item.name}
                     status={item.status}
@@ -106,6 +107,7 @@ const Control = props => {
               if (item.category === 'ALL') {
                 return (
                   <AllDeviceCard
+                    onPressData={sendData}
                     key={index}
                     title={item.name}
                     status={item.status}
