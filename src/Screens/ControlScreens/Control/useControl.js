@@ -5,12 +5,7 @@ import CategoryActions from '../../../Redux/CategoryRedux';
 import {useEffect, useState, useRef} from 'react';
 import MQTTConnection from '../../../Services/MQTTConnection';
 import {MQTT_DATA} from '../../../Data/Constans';
-import MqttNotificationsManager from '../../../Services/SpMQTT';
-
-MqttNotificationsManager.create('bob', {
-  host: '10.100.2.41',
-  port: 1883,
-});
+// import MqttNotificationsManager from '../../../Services/SpMQTT';
 
 export const useControl = () => {
   const dispatch = useDispatch();
