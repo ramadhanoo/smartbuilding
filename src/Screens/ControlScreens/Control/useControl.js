@@ -25,20 +25,10 @@ export const useControl = () => {
   const scrolling = useRef(null);
 
   useEffect(() => {
-    // dispatch(CategoryActions.setCategoryReq({actionType: 'load'}));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    // mqttConnect = new MQTTConnection();
     separateArrays(categoryRedux.data[activeTabName]);
-    // mqttConnect.onMQTTConnect = onMQTTConnect;
-    // mqttConnect.onMQTTLost = onMQTTLost;
-    // mqttConnect.onMQTTMessageArrived = onMQTTMessageArrived;
-    // mqttConnect.onMQTTMessageDelivered = onMQTTMessageDelivered;
-
-    // mqttConnect.connect(MQTT_DATA.host, MQTT_DATA.port);
-    //mqttConnect, onMQTTConnect
-    // return () => {
-    //   mqttConnect.close();
-    // };
+    return () => {
+      MqttNotificationsManager.disconnect();
+    };
   }, [activeTabName, categoryRedux.data]);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps

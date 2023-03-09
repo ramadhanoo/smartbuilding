@@ -5,7 +5,6 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import {Colors} from '../Themes';
-import { Button } from '../Components';
 
 async function prepareIcons() {
   const icons = await Promise.all([
@@ -56,62 +55,6 @@ function setRootWelcome() {
   });
 }
 
-function setRootMain() {
-  Navigation.setRoot({
-    root: {
-      stack: {
-        id: 'HOME',
-        children: [
-          {
-            component: {
-              name: NAVIGATION_NAME.HOME.home,
-              // name: NAVIGATION_NAME.AGENT.connected
-            },
-          },
-        ],
-      },
-    },
-  });
-}
-
-async function setRootHome() {
-  const icons = await prepareIcons();
-  Navigation.setRoot({
-    root: {
-      stack: {
-        id: 'MAIN_STACK_CTM',
-        children: [
-          {
-            bottomTabs: {
-              id: 'bottom_tab_main_ota',
-              children: [
-                {
-                  component: {
-                    name: NAVIGATION_NAME.HOME.home,
-                    options: {
-                      bottomTab: {
-                        text: 'Home',
-                        textColor: Colors.greyTabs,
-                        fontSize: 10,
-                        selectedFontSize: 10,
-                        iconHeight: 28,
-                        selectedTextColor: Colors.mainColor,
-                        iconColor: Colors.greyTabs,
-                        selectedIconColor: Colors.mainColor,
-                        icon: icons.home,
-                      },
-                    },
-                  },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-  });
-}
-
 async function setRootDashboard() {
   const icons = await prepareIcons();
   Navigation.setRoot({
@@ -128,7 +71,6 @@ async function setRootDashboard() {
                     name: NAVIGATION_NAME.CONTROL.control,
                     options: {
                       bottomTab: {
-                        component: () => <Button />,
                         text: 'Control Center', // Optional
                         textColor: Colors.greyTabs, // Optional
                         selectedTextColor: Colors.blueSmartBuilding,
@@ -206,7 +148,5 @@ async function setRootDashboard() {
 export default {
   setRootSpalsh,
   setRootWelcome,
-  setRootHome,
-  setRootMain,
   setRootDashboard,
 };

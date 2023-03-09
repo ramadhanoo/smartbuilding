@@ -9,14 +9,14 @@ export const BaseScreenModal = React.forwardRef(({children, ...props}, ref) => {
   const themes = useSelector(ThemeSelectors.getColors);
   const isDark = useSelector(state => state.theme.dark);
   const styles = styling(props, themes);
-  const {onPressBackdrop} = props;
+  const {onPressBackdrop, useSafeArea} = props;
 
   return (
     <TouchableOpacity
       activeOpacity={1}
       onPress={onPressBackdrop}
       style={styles.boxContainer}>
-      <SafeAreaView style={styles.container} />
+      {useSafeArea ? <SafeAreaView style={styles.container} /> : null}
 
       <View {...props}>{children}</View>
     </TouchableOpacity>
@@ -26,4 +26,5 @@ export const BaseScreenModal = React.forwardRef(({children, ...props}, ref) => {
 BaseScreenModal.defaultProps = {
   safeAreaColor: Colors.white,
   onPressBackdrop: () => {},
+  useSafeArea: true,
 };

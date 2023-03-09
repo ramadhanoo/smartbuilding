@@ -1,8 +1,5 @@
 export const NAVIGATION_NAME = {
   APP: 'app',
-  HOME: {
-    home: 'home.home',
-  },
   CONTROL: {
     control: 'control.control',
   },
@@ -15,6 +12,10 @@ export const NAVIGATION_NAME = {
   PROFILE: {
     profile: 'profile.profile',
   },
+  MODAL: {
+    modalFilter: 'modal.modalFilter',
+  },
+  OVERLAY: {},
 };
 
 export const any = () => {};

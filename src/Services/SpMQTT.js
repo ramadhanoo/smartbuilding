@@ -62,17 +62,18 @@ module.exports = {
   onConnectionOpened() {
     // subscribe to the client channel
     this.client.subscribe(this.conProps.channelToUse, this.QOS);
-    this.client.publish(
-      this.conProps.channelToUse,
-      'test dio hahahahahah',
-      0,
-      false,
-    );
+    // this.client.publish(
+    //   this.conProps.channelToUse,
+    //   'test dio hahahahahah',
+    //   0,
+    //   false,
+    // );
     console.log('MQTT onConnectionOpened');
   },
 
   onConnectionClosed(err) {
     console.log(`MQTT onConnectionClosed ${err}`);
+    // this.client.disconnect();
   },
 
   onMessageArrived(message) {

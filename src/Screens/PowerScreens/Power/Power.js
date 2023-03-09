@@ -16,6 +16,7 @@ import CardListDepartmentPower from './content/CardListDepartmentPower/CardListD
 import {BarChart} from 'react-native-chart-kit';
 import {scaleWithPixel, ScreenHeight, ScreenWidth} from '../../../Transforms';
 import {graphStyle, dataTestts, chartConfig} from '../../../Data/Constans';
+import NavigationServices from '../../../Navigation/NavigationServices';
 moment.locale('id');
 
 const Power = props => {
@@ -33,7 +34,7 @@ const Power = props => {
           stylesTitleLeft={{fontFamily: Fonts.type.bold}}
           titleLeft={'Power Usage'}
           titleRight={'March 2023'}
-          actionFilter={() => {}}
+          actionFilter={() => NavigationServices.showModal('modal.modalFilter')}
         />
         <View style={styles.chartContainer}>
           <BarChart
@@ -56,7 +57,7 @@ const Power = props => {
           titleLeft={'Usage Detail'}
           stylesTitleLeft={{fontFamily: Fonts.type.bold}}
           titleRight={'Sort by dept'}
-          actionFilter={() => {}}
+          actionFilter={() => NavigationServices.showModal('modal.modalFilter')}
         />
         <View style={styles.tabContainer}>
           <Section

@@ -1,7 +1,6 @@
 import {put, call, select} from 'redux-saga/effects';
 import CouponActions from '../Redux/CouponRedux';
 import CategoryActions, {CategorySelectors} from '../Redux/CategoryRedux';
-import {filterData} from '../Screens/Home/Home.mapper';
 
 export function* getDataCategory(api, {payload}) {
   try {
@@ -49,10 +48,7 @@ export function* getDataCoupon(api, {payload}) {
     const {ok, data, status} = response;
     if (ok && status === 200) {
       if (data.result.length !== 0) {
-        var newData = filterData(
-          data.result,
-          payload.dataCategory[0]?.categoryId ?? '00',
-        );
+        var newData = [];
         yield put(
           CouponActions.setFilteredData({
             filtredData: newData,
