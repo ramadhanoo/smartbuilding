@@ -26,9 +26,9 @@ export const useControl = () => {
 
   useEffect(() => {
     separateArrays(categoryRedux.data[activeTabName]);
-    return () => {
-      MqttNotificationsManager.disconnect();
-    };
+    // return () => {
+    //   MqttNotificationsManager.disconnect();
+    // };
   }, [activeTabName, categoryRedux.data]);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -27,6 +27,7 @@ ModalFilter.options = {
   topBar: {
     visible: false,
   },
+  modalTransitionStyle: 'flipHorizontal',
   modalPresentationStyle: 'overCurrentContext',
   layout: {
     backgroundColor: 'transparent',
