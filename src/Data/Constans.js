@@ -1,6 +1,6 @@
 import {Colors} from '../Themes';
 export const API_VERSION = '2.5';
-export const BASE_URL = 'https://user1673281842743.requestly.dev';
+export const BASE_URL = 'http://10.100.56.250:8080';
 export const API_STATUS = 'dev';
 export const API_STATUS2 = 'staging';
 export const Api_status3 = 'prod';
@@ -236,7 +236,7 @@ export const CCTV_DATA = [
 export const DATA_DEPT = {
   'Departement 1': [
     {
-      categoryId: '1',
+      categoryId: '10',
       category: 'ALL',
       colorIconText: Colors.blueDarkSmartBuilding,
       name: 'All Device',
@@ -245,7 +245,7 @@ export const DATA_DEPT = {
       height: 200,
     },
     {
-      categoryId: '1',
+      categoryId: '20',
       category: 'AC',
       name: 'AC Ruangan 1',
       colorIconText: Colors.blueDarkSmartBuilding,
@@ -254,7 +254,7 @@ export const DATA_DEPT = {
       height: 100,
     },
     {
-      categoryId: '1',
+      categoryId: '30',
       category: 'AC',
       name: 'AC Ruangan 2',
       colorIconText: Colors.blueDarkSmartBuilding,
@@ -272,7 +272,7 @@ export const DATA_DEPT = {
       height: 400,
     },
     {
-      categoryId: '1',
+      categoryId: '5',
       category: 'LAMPU_UTAMA',
       name: 'Lampu Area Utama',
       colorIconText: Colors.blueDarkSmartBuilding,
@@ -281,7 +281,7 @@ export const DATA_DEPT = {
       height: 300,
     },
     {
-      categoryId: '1',
+      categoryId: '2',
       category: 'LAMPU_AREA',
       name: 'Lampu Ruang Meeting 2',
       status: false,
@@ -290,7 +290,7 @@ export const DATA_DEPT = {
       height: 100,
     },
     {
-      categoryId: '1',
+      categoryId: '3',
       category: 'LAMPU_AREA',
       name: 'Lampu Ruang Meeting 3',
       status: false,
@@ -299,7 +299,7 @@ export const DATA_DEPT = {
       height: 100,
     },
     {
-      categoryId: '1',
+      categoryId: '8',
       category: 'LAMPU_UTAMA',
       name: 'Lampu Area Gedung',
       colorIconText: Colors.blueDarkSmartBuilding,
@@ -308,7 +308,7 @@ export const DATA_DEPT = {
       height: 300,
     },
     {
-      categoryId: '1',
+      categoryId: '4',
       category: 'LAMPU_AREA',
       name: 'Lampu Ruang Meeting 4',
       status: false,
@@ -317,7 +317,7 @@ export const DATA_DEPT = {
       height: 100,
     },
     {
-      categoryId: '1',
+      categoryId: '10',
       category: 'LAMPU_UTAMA',
       name: 'Lampu Area Gedung Pendek',
       colorIconText: Colors.blueDarkSmartBuilding,

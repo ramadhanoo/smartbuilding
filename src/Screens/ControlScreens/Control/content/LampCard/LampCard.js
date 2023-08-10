@@ -12,6 +12,8 @@ const LampCard = ({
   stylesText,
   colorIconText,
   kategori,
+  onChangeLamp,
+  categoryId,
 }) => {
   return (
     <View style={stylesCard}>
@@ -32,7 +34,7 @@ const LampCard = ({
         trackOnStyle={styles.trackStyles}
         trackOffStyle={styles.trackStyles}
         size="small"
-        onToggle={isOn => console.log('changed to : ', isOn)}
+        onToggle={isOn => onChangeLamp(isOn,categoryId)}
       />
     </View>
   );
@@ -45,6 +47,7 @@ LampCard.defaultProps = {
   stylesText: {},
   colorIconText: '#fff',
   kategori: 'LAMPU_AREA',
+  categoryId: '',
 };
 
 export default LampCard;

@@ -4,7 +4,7 @@ import NavigationServices from '../../../Navigation/NavigationServices';
 import CategoryActions from '../../../Redux/CategoryRedux';
 import {useEffect, useState, useRef} from 'react';
 import MQTTConnection from '../../../Services/MQTTConnection';
-import {MQTT_DATA} from '../../../Data/Constans';
+import {BASE_URL, MQTT_DATA} from '../../../Data/Constans';
 import MqttNotificationsManager from '../../../Services/SpMQTT';
 
 MqttNotificationsManager.create('bob', {
@@ -98,6 +98,50 @@ export const useControl = () => {
     NavigationServices.push('home.detail', {data: item});
   };
 
+  const onChangeLamp =  async (status, categori) => {
+
+    let result = categoryRedux.data[activeTabName].filter(obj => {
+      return obj.categoryId === categori
+    })
+
+    var foundIndex = categoryRedux.data[activeTabName].findIndex(x => x.categoryId == result[0].categoryId);
+    let cat = categoryRedux.data[activeTabName][foundIndex] = {
+      categoryId: result[0].categoryId,
+      category: result[0].category,
+      name: result[0].name,
+      colorIconText: result[0].colorIconText,
+      status: !result[0].status,
+      color: result[0].color,
+      height: result[0].height,
+    }
+
+    let changeParent = {
+      ...categoryRedux.data,
+      }
+
+      dispatch(CategoryActions.succesFetchCategory({
+        data: changeParent
+      }))
+      
+      try {
+        await fetch( BASE_URL + `/lamp`, {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            key: 'c693fda75aa71e10982b72fab646295ff1be30ee',
+            chl: `RLY-CH-${categori}`,
+            val: status
+          }),
+        });
+    }
+    catch (error) {
+        console.error("error --------",error);
+    }
+  }
+
   return {
     state: {
       cardLeft,
@@ -116,6 +160,7 @@ export const useControl = () => {
       refreshData,
       onPressDetail,
       setActiveTabName,
+      onChangeLamp,
     },
     data: {},
   };
