@@ -64,7 +64,7 @@ module.exports = {
     this.client.subscribe(this.conProps.channelToUse, this.QOS);
     this.client.publish(
       this.conProps.channelToUse,
-      'test dio hahahahahah',
+      'test fauzan hahahahahah',
       0,
       false,
     );

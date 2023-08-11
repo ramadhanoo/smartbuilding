@@ -100,6 +100,13 @@ export const useControl = () => {
 
   const onChangeLamp =  async (status, categori) => {
 
+
+    if(status == true){
+      var a = 1
+    } else {
+      var a = 0
+    }
+
     let result = categoryRedux.data[activeTabName].filter(obj => {
       return obj.categoryId === categori
     })
@@ -124,16 +131,16 @@ export const useControl = () => {
       }))
       
       try {
-        await fetch( BASE_URL + `/lamp`, {
+        await fetch( 'http://10.100.56.250:8080/relay', {
           method: 'POST',
           headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            key: 'c693fda75aa71e10982b72fab646295ff1be30ee',
-            chl: `RLY-CH-${categori}`,
-            val: status
+            key: '404ABE1F5C4855C84DFE42BDFA47CC94E964486DF2B11E10B059912BD1F66C74',
+            item: `RLY-CH-${categori}`,
+            val: a
           }),
         });
     }
