@@ -68,6 +68,12 @@ module.exports = {
     //   0,
     //   false,
     // );
+    this.client.publish(
+      this.conProps.channelToUse,
+      'test fauzan hahahahahah',
+      0,
+      false,
+    );
     console.log('MQTT onConnectionOpened');
   },
 

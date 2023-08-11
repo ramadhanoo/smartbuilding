@@ -27,7 +27,7 @@ moment.locale('id');
 
 const Control = props => {
   const {state, actions} = useControl();
-  const {actionsTabs, sendData} = actions;
+  const {actionsTabs, sendData, onChangeLamp} = actions;
   const {scrolling, activeTab, cardRight, cardLeft} = state;
 
   return (
@@ -96,6 +96,8 @@ const Control = props => {
                     colorIconText={item.colorIconText}
                     title={item.name}
                     status={item.status}
+                    categoryId={item.categoryId}
+                    onChangeLamp={onChangeLamp}
                     stylesCard={styles.cardSample(index, item.color)}
                   />
                 );
@@ -130,7 +132,9 @@ const Control = props => {
                     kategori={item.category}
                     colorIconText={item.colorIconText}
                     title={item.name}
+                    categoryId={item.categoryId}
                     status={item.status}
+                    onChangeLamp={onChangeLamp}
                     stylesCard={styles.cardSample(index, item.color)}
                   />
                 );
