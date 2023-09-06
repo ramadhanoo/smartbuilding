@@ -131,14 +131,15 @@ export const useControl = () => {
       }))
       
       try {
-        await fetch( 'http://10.100.56.250:8080/relay', {
+        await fetch( 'https://dev.totalbp.com/api/iot/sensor/sendcmd', {
           method: 'POST',
           headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            key: '404ABE1F5C4855C84DFE42BDFA47CC94E964486DF2B11E10B059912BD1F66C74',
+            PAT: '2m7DJg0D0Grfnfj33hVZ5NU2r3niFpuyZhpZ60mWn?g?xes2tkk//5?FvklgJKdX',
+            NodeCode: 'ESP32-LT3-IT-DEV01',
             item: `RLY-CH-${categori}`,
             val: a
           }),
